@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"text/template"
 
 	"kindergarden_recruitment_app_pdf_gen/models"
+	"kindergarden_recruitment_app_pdf_gen/services"
 )
 
 func main() {
@@ -18,29 +18,18 @@ func main() {
 	}
 
 	var formData models.FormData
-	err = json.Unmarshal(data, &formData)
-	if err != nil {
+	if err := json.Unmarshal(data, &formData); err != nil {
 		log.Fatalf("Error unmarshaling JSON: %v", err)
 	}
 
-	// Parse the template
-	tmpl, err := template.ParseFiles("templates/html/page1.html")
-	if err != nil {
-		log.Fatalf("Error parsing template: %v", err)
+	formGenerator := services.FormGenerator{}
+
+	// Generate pages
+	for pageNumber := 1; pageNumber <= 2; pageNumber++ {
+		if err := formGenerator.GeneratePage(pageNumber, formData); err != nil {
+			log.Fatalf("Error generating page %d: %v", pageNumber, err)
+		}
 	}
 
-	// Create output file
-	outputFile, err := os.Create("generated_form.html")
-	if err != nil {
-		log.Fatalf("Error creating output file: %v", err)
-	}
-	defer outputFile.Close()
-
-	// Execute the template with our data
-	err = tmpl.Execute(outputFile, formData)
-	if err != nil {
-		log.Fatalf("Error executing template: %v", err)
-	}
-
-	fmt.Println("Form successfully generated as generated_form.html")
+	fmt.Println("Form generation completed successfully")
 }

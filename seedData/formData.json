@@ -5,7 +5,13 @@
     "PESEL": "21250501501",
     "Address": "ul. Kwiatowa 5, 55-120 Oborniki Śląskie",
     "Diet": "Bezmleczna",
-    "DevelopmentInfo": "Rozwój prawidłowy"
+    "DevelopmentInfo": "Rozwój prawidłowy",
+    "HasDisability": false,
+    "NeedsSpecialEducation": false,
+    "Siblings": {
+      "Count": 2,
+      "Ages": "5, 3"
+    }
   },
   "Mother": {
     "FullName": "Maria Nowak",
@@ -14,7 +20,12 @@
     "Address": "ul. Kwiatowa 5, 55-120 Oborniki Śląskie",
     "Phone": "+48 123 456 789",
     "Email": "maria.nowak@example.com",
-    "Workplace": "Szpital Miejski w Obornikach Śląskich, ul. Szpitalna 1"
+    "Workplace": "Szpital Miejski w Obornikach Śląskich, ul. Szpitalna 1",
+    "IsEmployed": true,
+    "IsSelfEmployed": false,
+    "IsStudent": false,
+    "FiledTaxInOborniki": true,
+    "ResidesInOborniki": true
   },
   "Father": {
     "FullName": "Jan Nowak",
@@ -23,10 +34,11 @@
     "Address": "ul. Kwiatowa 5, 55-120 Oborniki Śląskie",
     "Phone": "+48 987 654 321",
     "Email": "jan.nowak@example.com",
-    "Workplace": "Przedsiębiorstwo Budowlane 'Konstrukcja', ul. Budowlana 10, Wrocław"
-  },
-  "Siblings": {
-    "Count": 2,
-    "Ages": "5, 3"
+    "Workplace": "Przedsiębiorstwo Budowlane 'Konstrukcja', ul. Budowlana 10, Wrocław",
+    "IsEmployed": true,
+    "IsSelfEmployed": false,
+    "IsStudent": false,
+    "FiledTaxInOborniki": true,
+    "ResidesInOborniki": true
   }
 }

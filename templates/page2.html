@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wniosek o przyjęcie dziecka</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.5;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .page {
+        page-break-after: always;
+        margin-bottom: 40px;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .underline {
+        text-decoration: underline;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .signature-line {
+        margin-top: 60px;
+        border-top: 1px solid black;
+        width: 300px;
+      }
+
+      .indent {
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Page 2 -->
+    <div class="page">
+      <p>Jednocześnie oświadczam, że:</p>
+
+      <table>
+        <tr>
+          <th>Kryteria</th>
+          <th>Odpowiedź Tak</th>
+          <th>Odpowiedź Nie</th>
+          <th>Wymagane dokumenty</th>
+        </tr>
+
+        <!-- Mother Employment -->
+        <tr>
+          <td>
+            Matka/opiekun prawny - jest zatrudniony - prowadzi własną
+            działalność gospodarczą - studiuje lub uczy się w trybie dziennym
+          </td>
+          <td>
+            {{if or .Mother.IsEmployed .Mother.IsSelfEmployed
+            .Mother.IsStudent}}✓{{end}}
+          </td>
+          <td>
+            {{if not (or .Mother.IsEmployed .Mother.IsSelfEmployed
+            .Mother.IsStudent)}}✓{{end}}
+          </td>
+          <td>
+            - zaświadczenie od pracodawcy o zatrudnieniu, - okazanie wpisu do
+            ewidencji działalności gospodarczej i złożenie kopii - zaświadczenie
+            z uczelni lub szkoły o kontynuowaniu nauki w trybie dziennym
+          </td>
+        </tr>
+
+        <!-- Father Employment -->
+        <tr>
+          <td>
+            Ojciec/opiekun prawny - jest zatrudniony - prowadzi własną
+            działalność gospodarczą - studiuje lub uczy się w trybie dziennym
+          </td>
+          <td>
+            {{if or .Father.IsEmployed .Father.IsSelfEmployed
+            .Father.IsStudent}}✓{{end}}
+          </td>
+          <td>
+            {{if not (or .Father.IsEmployed .Father.IsSelfEmployed
+            .Father.IsStudent)}}✓{{end}}
+          </td>
+          <td>
+            - zaświadczenie od pracodawcy o zatrudnieniu, - okazanie wpisu do
+            ewidencji działalności gospodarczej i złożenie kopii - zaświadczenie
+            z uczelni lub szkoły o kontynuowaniu nauki w trybie dziennym
+          </td>
+        </tr>
+
+        <!-- Mother Tax -->
+        <tr>
+          <td>
+            Matka/prawny opiekun złożył roczne zeznanie podatkowe PIT w Urzędzie
+            Skarbowym w Trzebnicy wskazując miejsce zamieszkania na terenie
+            Gminy Oborniki Śląskie
+          </td>
+          <td>{{if .Mother.FiledTaxInOborniki}}✓{{end}}</td>
+          <td>{{if not .Mother.FiledTaxInOborniki}}✓{{end}}</td>
+          <td>
+            Urzędowe poświadczenie złożenia deklaracji PIT i oświadczenia
+            rodziców/ opiekunów prawnych o wskazaniu w deklaracji PIT miejsca
+            zamieszkania na terenie Gminy Oborniki Śląskie
+          </td>
+        </tr>
+
+        <!-- Father Tax -->
+        <tr>
+          <td>
+            Ojciec/prawny opiekun złożył roczne zeznanie podatkowe PIT w
+            Urzędzie Skarbowym w Trzebnicy wskazując miejsce zamieszkania na
+            terenie Gminy Oborniki Śląskie
+          </td>
+          <td>{{if .Father.FiledTaxInOborniki}}✓{{end}}</td>
+          <td>{{if not .Father.FiledTaxInOborniki}}✓{{end}}</td>
+          <td>
+            Urzędowe poświadczenie złożenia deklaracji PIT i oświadczenia
+            rodziców/ opiekunów prawnych o wskazaniu w deklaracji PIT miejsca
+            zamieszkania na terenie Gminy Oborniki Śląskie
+          </td>
+        </tr>
+
+        <!-- Mother Residence -->
+        <tr>
+          <td>
+            Matka/opiekun prawny zamieszkuje na terenie Gminy Oborniki Śląskie
+          </td>
+          <td>{{if .Mother.ResidesInOborniki}}✓{{end}}</td>
+          <td>{{if not .Mother.ResidesInOborniki}}✓{{end}}</td>
+          <td>Oświadczenie</td>
+        </tr>
+
+        <!-- Father Residence -->
+        <tr>
+          <td>
+            Ojciec/opiekun prawny zamieszkuje na terenie Gminy Oborniki Śląskie
+          </td>
+          <td>{{if .Father.ResidesInOborniki}}✓{{end}}</td>
+          <td>{{if not .Father.ResidesInOborniki}}✓{{end}}</td>
+          <td>Oświadczenie</td>
+        </tr>
+
+        <!-- Child Disability -->
+        <tr>
+          <td>
+            Posiadanie orzeczenia dziecka o niepełnosprawności lub orzeczenia
+            potrzebie kształcenia specjalnego ze względu na niepełnosprawność
+          </td>
+          <td>
+            {{if or .Child.HasDisability .Child.NeedsSpecialEducation}}✓{{end}}
+          </td>
+          <td>
+            {{if not (or .Child.HasDisability
+            .Child.NeedsSpecialEducation)}}✓{{end}}
+          </td>
+          <td>
+            Orzeczenie dziecka o niepełnosprawności lub orzeczenie o potrzebie
+            kształcenia specjalnego ze względu na niepełnosprawność
+          </td>
+        </tr>
+
+        <!-- Development Concerns -->
+        <tr>
+          <td>
+            Posiadanie Opinii Poradni Psychologiczno-Pedagogicznej o potrzebie
+            objęcia dziecka wczesnym wspomaganiem rozwoju, zaświadczenie
+            lekarskie, że dziecko jest zagrożone niepełnosprawnością.
+          </td>
+          <td>{{if .Child.NeedsSpecialEducation}}✓{{end}}</td>
+          <td>{{if not .Child.NeedsSpecialEducation}}✓{{end}}</td>
+          <td>
+            Opinia Poradni Psychologiczno-Pedagogicznej o potrzebie objęcia
+            wczesnym wspomaganiem rozwoju lub zaświadczenie lekarskie, że
+            dziecko jest zagrożone niepełnosprawnością
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

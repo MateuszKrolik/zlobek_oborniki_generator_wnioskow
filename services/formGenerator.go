@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"text/template"
 
-	"kindergarden_recruitment_app_pdf_gen/models"
+	"github.com/MateuszKrolik/zlobek_oborniki_generator_wnioskow/models"
 )
 
 type FormGenerator struct{}

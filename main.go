@@ -10,8 +10,8 @@ import (
 	"net/http"
 	"os"
 
-	"kindergarden_recruitment_app_pdf_gen/models"
-	"kindergarden_recruitment_app_pdf_gen/services"
+	"github.com/MateuszKrolik/zlobek_oborniki_generator_wnioskow/models"
+	"github.com/MateuszKrolik/zlobek_oborniki_generator_wnioskow/services"
 )
 
 func htmlToPDF(pages map[int][]byte) ([]byte, error) {

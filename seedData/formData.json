@@ -1,0 +1,32 @@
+{
+  "Child": {
+    "FullName": "Anna Nowak",
+    "BirthDate": "15.05.2021",
+    "PESEL": "21250501501",
+    "Address": "ul. Kwiatowa 5, 55-120 Oborniki Śląskie",
+    "Diet": "Bezmleczna",
+    "DevelopmentInfo": "Rozwój prawidłowy"
+  },
+  "Mother": {
+    "FullName": "Maria Nowak",
+    "PESEL": "89021512345",
+    "BirthDate": "15.02.1989",
+    "Address": "ul. Kwiatowa 5, 55-120 Oborniki Śląskie",
+    "Phone": "+48 123 456 789",
+    "Email": "maria.nowak@example.com",
+    "Workplace": "Szpital Miejski w Obornikach Śląskich, ul. Szpitalna 1"
+  },
+  "Father": {
+    "FullName": "Jan Nowak",
+    "PESEL": "85061054321",
+    "BirthDate": "10.06.1985",
+    "Address": "ul. Kwiatowa 5, 55-120 Oborniki Śląskie",
+    "Phone": "+48 987 654 321",
+    "Email": "jan.nowak@example.com",
+    "Workplace": "Przedsiębiorstwo Budowlane 'Konstrukcja', ul. Budowlana 10, Wrocław"
+  },
+  "Siblings": {
+    "Count": 2,
+    "Ages": "5, 3"
+  }
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Wniosek o przyjęcie dziecka do Integracyjnego Żłobka Miejskiego Pod
+      Grzybkiem
+    </title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <!-- Page 1 -->
+    <div class="page">
+      <h1>
+        Wniosek o przyjęcie dziecka do Integracyjnego Żłobka Miejskiego Pod
+        Grzybkiem
+      </h1>
+
+      <p>
+        Obowiązek podania danych w pozycjach 1-5 wynika z Ustawy z dnia 4 lutego
+        2011 r. o opiece nad dziećmi w wieku do lat 3 Art. 3a pkt 1-7. Należy
+        wypełnić wszystkie pola.
+      </p>
+
+      <p>
+        <strong>1. Dane dziecka:</strong><br />
+        imię i nazwisko: {{.Child.FullName}}<br />
+        data urodzenia: {{.Child.BirthDate}}<br />
+        PESEL: {{.Child.PESEL}}<br />
+        adres zamieszkania: {{.Child.Address}}
+      </p>
+
+      <p>
+        <strong>2. Dane matki/opiekuna prawnego:</strong><br />
+        imiona i nazwisko: {{.Mother.FullName}}<br />
+        PESEL: {{.Mother.PESEL}}<br />
+        data urodzenia: {{.Mother.BirthDate}}<br />
+        adres zamieszkania: {{.Mother.Address}}<br />
+        nr telefonu: {{.Mother.Phone}}<br />
+        adres email: {{.Mother.Email}}<br />
+        adres zakładu pracy lub miejsca nauki: {{.Mother.Workplace}}
+      </p>
+
+      <p>
+        <strong>3. Dane ojca/opiekuna prawnego:</strong><br />
+        imiona i nazwisko: {{.Father.FullName}}<br />
+        PESEL: {{.Father.PESEL}}<br />
+        data urodzenia: {{.Father.BirthDate}}<br />
+        adres zamieszkania: {{.Father.Address}}<br />
+        nr telefonu: {{.Father.Phone}}<br />
+        adres email: {{.Father.Email}}<br />
+        adres zakładu pracy lub miejsca nauki: {{.Father.Workplace}}
+      </p>
+
+      <p>
+        <strong
+          >4. Dziecko posiada rodzeństwo (należy podać liczbę i wiek
+          rodzeństwa)</strong
+        ><br />
+        {{.Siblings.Count}} dzieci, wiek: {{.Siblings.Ages}}<br />
+      </p>
+
+      <p>
+        <strong>5. Informacje o stanie zdrowia dziecka:</strong><br />
+        <strong>dieta</strong>: {{if .Child.Diet}}{{.Child.Diet}}{{else}}Brak
+        specjalnej diety{{end}}<br />
+        <strong>Rozwój psychofizyczny dziecka</strong>:
+        {{.Child.DevelopmentInfo}}
+      </p>
+    </div>
+  </body>
+</html>

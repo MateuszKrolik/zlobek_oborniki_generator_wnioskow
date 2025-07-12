@@ -76,7 +76,10 @@ func main() {
 		log.Fatalf("Error unmarshaling JSON: %v", err)
 	}
 
-	formGenerator := services.FormGenerator{}
+	formGenerator, err := services.NewFormGenerator()
+	if err != nil {
+		log.Fatalf("Error instantiating generator: %v", err)
+	}
 	pages, err := formGenerator.GeneratePages(formData)
 	if err != nil {
 		log.Fatalf("Error generating pages: %v", err)

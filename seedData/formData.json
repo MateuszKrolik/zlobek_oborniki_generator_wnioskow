@@ -8,10 +8,22 @@
     "DevelopmentInfo": "Rozwój prawidłowy",
     "HasDisability": false,
     "NeedsSpecialEducation": false,
+    "IsSingleParentFamily": false,
+    "ParentDisability": false,
+    "PreviouslyRejected": false,
+    "DifficultSituation": true,
+    "SituationDescription": "Bardzo długi opis",
+    "LargeFamily": false,
+    "Vaccinated": true,
+    "VaccinationExemption": false,
     "Siblings": {
       "Count": 2,
-      "Ages": "5, 3"
-    }
+      "Ages": "5, 3",
+      "SiblingInNursery": true,
+      "SiblingDisability": false
+    },
+    "Points": 10,
+    "PendingPoints": 5
   },
   "Mother": {
     "FullName": "Maria Nowak",
@@ -25,7 +37,8 @@
     "IsSelfEmployed": false,
     "IsStudent": false,
     "FiledTaxInOborniki": true,
-    "ResidesInOborniki": true
+    "ResidesInOborniki": true,
+    "IsApplicant": false
   },
   "Father": {
     "FullName": "Jan Nowak",
@@ -39,6 +52,9 @@
     "IsSelfEmployed": false,
     "IsStudent": false,
     "FiledTaxInOborniki": true,
-    "ResidesInOborniki": true
-  }
+    "ResidesInOborniki": true,
+    "IsApplicant": true
+  },
+  "CurrentDate": "2025-01-02T15:04:05Z",
+  "CommitteeMemberName": "Jozin Zbazin"
 }

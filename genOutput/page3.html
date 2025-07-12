@@ -77,82 +77,82 @@
         <!-- Single Parent -->
         <tr>
           <td>Samotne wychowywanie dziecka</td>
-          <td>{{if .Child.IsSingleParentFamily}}✓{{end}}</td>
-          <td>{{if not .Child.IsSingleParentFamily}}✓{{end}}</td>
+          <td></td>
+          <td>✓</td>
           <td>Dokumenty potwierdzające samotne rodzicielstwo</td>
         </tr>
 
         <!-- Parent Disability -->
         <tr>
           <td>Rodzic z orzeczeniem o niepełnosprawności</td>
-          <td>{{if .Child.ParentDisability}}✓{{end}}</td>
-          <td>{{if not .Child.ParentDisability}}✓{{end}}</td>
+          <td></td>
+          <td>✓</td>
           <td>Orzeczenie o niepełnosprawności</td>
         </tr>
 
         <!-- Previously Rejected -->
         <tr>
           <td>Dziecko nie dostało miejsca w Żłobku w roku poprzednim</td>
-          <td>{{if .Child.PreviouslyRejected}}✓{{end}}</td>
-          <td>{{if not .Child.PreviouslyRejected}}✓{{end}}</td>
+          <td></td>
+          <td>✓</td>
           <td>Weryfikacja w żłobku</td>
         </tr>
 
         <!-- Sibling in Nursery -->
         <tr>
           <td>Rodzeństwo w żłobku</td>
-          <td>{{if .Child.Siblings.SiblingInNursery}}✓{{end}}</td>
-          <td>{{if not .Child.Siblings.SiblingInNursery}}✓{{end}}</td>
+          <td>✓</td>
+          <td></td>
           <td>Weryfikacja w żłobku</td>
         </tr>
 
         <!-- Sibling Disability -->
         <tr>
           <td>Rodzeństwo z orzeczeniem o niepełnosprawności</td>
-          <td>{{if .Child.Siblings.SiblingDisability}}✓{{end}}</td>
-          <td>{{if not .Child.Siblings.SiblingDisability}}✓{{end}}</td>
+          <td></td>
+          <td>✓</td>
           <td>Orzeczenie o niepełnosprawności</td>
         </tr>
 
         <!-- Difficult Situation -->
         <tr>
           <td>Trudna sytuacja rodzinna</td>
-          <td>{{if .Child.DifficultSituation}}✓{{end}}</td>
-          <td>{{if not .Child.DifficultSituation}}✓{{end}}</td>
+          <td>✓</td>
+          <td></td>
           <td>Dokumenty potwierdzające</td>
         </tr>
 
         <!-- Large Family -->
         <tr>
           <td>Rodzina wielodzietna (3+ dzieci)</td>
-          <td>{{if .Child.LargeFamily}}✓{{end}}</td>
-          <td>{{if not .Child.LargeFamily}}✓{{end}}</td>
+          <td></td>
+          <td>✓</td>
           <td>Oświadczenie</td>
         </tr>
 
         <!-- Vaccinations -->
         <tr>
           <td>Dziecko szczepione zgodnie z kalendarzem</td>
-          <td>{{if .Child.Vaccinated}}✓{{end}}</td>
-          <td>{{if not .Child.Vaccinated}}✓{{end}}</td>
+          <td>✓</td>
+          <td></td>
           <td>Oświadczenie</td>
         </tr>
 
         <!-- Vaccination Exemption -->
         <tr>
           <td>Zwolnienie ze szczepień</td>
-          <td>{{if .Child.VaccinationExemption}}✓{{end}}</td>
-          <td>{{if not .Child.VaccinationExemption}}✓{{end}}</td>
+          <td></td>
+          <td>✓</td>
           <td>Zaświadczenie lekarskie</td>
         </tr>
       </table>
 
-      {{if .Child.DifficultSituation}}
+      
       <div>
         <h3>Opis trudnej sytuacji:</h3>
-        <p>{{.Child.SituationDescription}}</p>
+        <p>Bardzo długi opis</p>
       </div>
-      {{end}}
+      
     </div>
   </body>
 </html>

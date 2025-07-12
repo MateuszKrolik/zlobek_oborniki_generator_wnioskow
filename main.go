@@ -25,7 +25,7 @@ func main() {
 	formGenerator := services.FormGenerator{}
 
 	// Generate pages
-	for pageNumber := 1; pageNumber <= 2; pageNumber++ {
+	for pageNumber := 1; pageNumber <= 5; pageNumber++ {
 		if err := formGenerator.GeneratePage(pageNumber, formData); err != nil {
 			log.Fatalf("Error generating page %d: %v", pageNumber, err)
 		}

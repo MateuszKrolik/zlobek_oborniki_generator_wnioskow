@@ -15,4 +15,6 @@ type Parent struct {
 	IsStudent          bool `json:"IsStudent"`
 	FiledTaxInOborniki bool `json:"FiledTaxInOborniki"`
 	ResidesInOborniki  bool `json:"ResidesInOborniki"`
+	// Page 4
+	IsApplicant bool `json:"IsApplicant"`
 }

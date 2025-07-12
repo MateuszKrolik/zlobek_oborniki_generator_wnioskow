@@ -64,7 +64,7 @@
   </head>
   <body>
     <div class="page">
-      {{if or .Mother.FiledTaxInOborniki .Father.FiledTaxInOborniki}}
+      
       <p><strong>Oświadczenie nr 1</strong></p>
       <p>
         Oświadczam, że złożyłam/em roczne zeznanie podatkowe PIT w Urzędzie
@@ -72,58 +72,31 @@
         Oborniki Śląskie
       </p>
 
-      {{if .Mother.FiledTaxInOborniki}}
+      
       <p>
-        Data i podpis matki/opiekuna prawnego: {{.CurrentDate}},
-        {{.Mother.FullName}}
+        Data i podpis matki/opiekuna prawnego: 2025-01-02 15:04:05 +0000 UTC,
+        Maria Nowak
       </p>
-      {{end}} {{if .Father.FiledTaxInOborniki}}
+       
       <p>
-        Data i podpis ojca/opiekuna prawnego: {{.CurrentDate}},
-        {{.Father.FullName}}
+        Data i podpis ojca/opiekuna prawnego: 2025-01-02 15:04:05 +0000 UTC,
+        Jan Nowak
       </p>
-      {{end}} {{end}} {{if or .Mother.ResidesInOborniki
-      .Father.ResidesInOborniki}}
+        
       <p><strong>Oświadczenie nr 2</strong></p>
       <p>Oświadczam, że zamieszkuję na terenie Gminy Oborniki Śląskie.</p>
 
-      {{if .Mother.ResidesInOborniki}}
+      
       <p>
-        Data i podpis matki/opiekuna prawnego: {{.CurrentDate}},
-        {{.Mother.FullName}}
+        Data i podpis matki/opiekuna prawnego: 2025-01-02 15:04:05 +0000 UTC,
+        Maria Nowak
       </p>
-      {{end}} {{if .Father.ResidesInOborniki}}
+       
       <p>
-        Data i podpis ojca/opiekuna prawnego: {{.CurrentDate}},
-        {{.Father.FullName}}
+        Data i podpis ojca/opiekuna prawnego: 2025-01-02 15:04:05 +0000 UTC,
+        Jan Nowak
       </p>
-      {{end}} {{end}} {{if .Child.IsSingleParentFamily}}
-      <p><strong>Oświadczenie nr 3</strong></p>
-      <p>Oświadczam, że jestem rodzicem samotnie wychowującym dziecko.</p>
-
-      <p>
-        Data i podpis rodzica: {{.CurrentDate}}, {{if
-        .Mother.IsApplicant}}{{.Mother.FullName}}{{else}}{{.Father.FullName}}{{end}}
-      </p>
-      {{end}} {{if .Child.LargeFamily}}
-      <p><strong>Oświadczenie nr 4</strong></p>
-      <p>
-        Oświadczam, że dziecko wychowuje się w rodzinie wielodzietnej (troje lub
-        więcej dzieci do 18 roku życia, pozostających we wspólnym gospodarstwie
-        domowym).
-      </p>
-
-      {{if .Mother.IsApplicant}}
-      <p>
-        Data i podpis matki/opiekuna prawnego: {{.CurrentDate}},
-        {{.Mother.FullName}}
-      </p>
-      {{end}} {{if .Father.IsApplicant}}
-      <p>
-        Data i podpis ojca/opiekuna prawnego: {{.CurrentDate}},
-        {{.Father.FullName}}
-      </p>
-      {{end}} {{end}} {{if .Child.Vaccinated}}
+          
       <p><strong>Oświadczenie nr 5</strong></p>
       <p>
         Oświadczam, że dziecko jest szczepione zgodnie z kalendarzem szczepień
@@ -131,17 +104,12 @@
         rok.
       </p>
 
-      {{if .Mother.IsApplicant}}
+       
       <p>
-        Data i podpis matki/opiekuna prawnego: {{.CurrentDate}},
-        {{.Mother.FullName}}
+        Data i podpis ojca/opiekuna prawnego: 2025-01-02 15:04:05 +0000 UTC,
+        Jan Nowak
       </p>
-      {{end}} {{if .Father.IsApplicant}}
-      <p>
-        Data i podpis ojca/opiekuna prawnego: {{.CurrentDate}},
-        {{.Father.FullName}}
-      </p>
-      {{end}} {{end}}
+       
 
       <p><strong>Oświadczenie wnioskodawcy:</strong></p>
       <p>
@@ -153,10 +121,9 @@
         >
       </p>
 
-      <p>Data: {{.CurrentDate}}</p>
+      <p>Data: 2025-01-02 15:04:05 +0000 UTC</p>
       <p>
-        Podpis wnioskodawcy: {{if
-        .Mother.IsApplicant}}{{.Mother.FullName}}{{else}}{{.Father.FullName}}{{end}}
+        Podpis wnioskodawcy: Jan Nowak
       </p>
     </div>
   </body>

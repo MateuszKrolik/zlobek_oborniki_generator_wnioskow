@@ -17,8 +17,7 @@
     "Vaccinated": true,
     "VaccinationExemption": false,
     "Siblings": {
-      "Count": 2,
-      "Ages": "5, 3",
+      "UnderageCount": 2,
       "SiblingInNursery": true,
       "SiblingDisability": false
     },

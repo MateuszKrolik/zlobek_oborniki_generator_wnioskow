@@ -9,14 +9,19 @@
         font-family: Arial, sans-serif;
         line-height: 1.5;
         margin: 0;
-        padding: 20px;
+        padding: 0 !important; /* Remove body padding for PDF */
       }
 
       .page {
         page-break-after: always;
-        margin-bottom: 40px;
-        padding: 20px;
-        border: 1px solid #ccc;
+        break-after: page;
+        height: 277mm; /* 297mm - 20mm margins */
+        width: 190mm; /* 210mm - 20mm margins */
+        margin: 0 auto;
+        padding: 15mm; /* Reduced from 20mm */
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden; /* Prevent content bleeding */
       }
 
       h1 {
@@ -33,6 +38,7 @@
         width: 100%;
         border-collapse: collapse;
         margin: 15px 0;
+        page-break-inside: auto;
       }
 
       table,
@@ -43,9 +49,16 @@
 
       th,
       td {
-        padding: 8px;
+        padding: 6px; /* Slightly reduced */
         text-align: left;
         vertical-align: top;
+        font-size: 11px; /* Slightly smaller */
+        word-break: break-word; /* Handle long text */
+      }
+
+      tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
       }
 
       .signature-line {
@@ -56,6 +69,11 @@
 
       .indent {
         margin-left: 20px;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
       }
     </style>
   </head>

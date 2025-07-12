@@ -1,9 +1,8 @@
 package services
 
 import (
+	"bytes"
 	"fmt"
-	"os"
-	"path/filepath"
 	"text/template"
 
 	"kindergarden_recruitment_app_pdf_gen/models"
@@ -11,34 +10,30 @@ import (
 
 type FormGenerator struct{}
 
-func (FormGenerator) GeneratePage(pageNumber int, formData models.FormData) error {
-	// Ensure output directory exists
-	if err := os.MkdirAll("genOutput", 0755); err != nil {
-		return fmt.Errorf("failed to create output directory: %v", err)
+func (FormGenerator) GeneratePages(formData models.FormData) (map[int][]byte, error) {
+	pages := make(map[int][]byte)
+
+	for pageNumber := 1; pageNumber <= 6; pageNumber++ {
+		content, err := generatePage(pageNumber, formData)
+		if err != nil {
+			return nil, fmt.Errorf("failed to generate page %d: %w", pageNumber, err)
+		}
+		pages[pageNumber] = content
 	}
 
-	// Create template and output paths
-	templatePath := fmt.Sprintf("templates/page%d.html", pageNumber)
-	outputPath := filepath.Join("genOutput", fmt.Sprintf("page%d.html", pageNumber))
+	return pages, nil
+}
 
-	// Parse template
-	tmpl, err := template.ParseFiles(templatePath)
+func generatePage(pageNumber int, formData models.FormData) ([]byte, error) {
+	tmpl, err := template.ParseFiles(fmt.Sprintf("templates/page%d.html", pageNumber))
 	if err != nil {
-		return fmt.Errorf("error parsing page%d template: %v", pageNumber, err)
+		return nil, fmt.Errorf("error parsing template: %w", err)
 	}
 
-	// Create output file
-	outputFile, err := os.Create(outputPath)
-	if err != nil {
-		return fmt.Errorf("error creating page%d output file: %v", pageNumber, err)
-	}
-	defer outputFile.Close()
-
-	// Execute template
-	if err := tmpl.Execute(outputFile, formData); err != nil {
-		return fmt.Errorf("error executing page%d template: %v", pageNumber, err)
+	var buf bytes.Buffer
+	if err := tmpl.Execute(&buf, formData); err != nil {
+		return nil, fmt.Errorf("error executing template: %w", err)
 	}
 
-	fmt.Printf("Successfully generated %s\n", outputPath)
-	return nil
+	return buf.Bytes(), nil
 }

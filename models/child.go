@@ -27,7 +27,7 @@ type Child struct {
 }
 
 type Siblings struct {
-	UnderageCount int `json:"Count"`
+	UnderageCount int `json:"UnderageCount"`
 	// page 3
 	SiblingInNursery  bool `json:"SiblingInNursery"`
 	SiblingDisability bool `json:"SiblingDisability"`

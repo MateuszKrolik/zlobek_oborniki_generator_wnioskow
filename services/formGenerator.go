@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"text/template"
 
+	"github.com/MateuszKrolik/zlobek_oborniki_generator_wnioskow/extensions"
 	"github.com/MateuszKrolik/zlobek_oborniki_generator_wnioskow/models"
 )
 
@@ -38,9 +39,8 @@ func NewFormGenerator() (*FormGenerator, error) {
 	return fg, nil
 }
 
-func (fg *FormGenerator) GeneratePages(formData models.FormData) (map[int][]byte, error) {
+func (fg *FormGenerator) GeneratePages(formData models.FormData) (extensions.Pages, error) {
 	pages := make(map[int][]byte)
-
 	for pageNumber, tmpl := range fg.templates {
 		var buf bytes.Buffer
 		if err := tmpl.Execute(&buf, formData); err != nil {

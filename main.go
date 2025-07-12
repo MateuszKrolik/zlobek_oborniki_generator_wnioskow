@@ -1,59 +1,18 @@
 package main
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
-	"io"
 	"log"
-	"mime/multipart"
-	"net/http"
 	"os"
 
+	"github.com/MateuszKrolik/zlobek_oborniki_generator_wnioskow/extensions"
 	"github.com/MateuszKrolik/zlobek_oborniki_generator_wnioskow/models"
 	"github.com/MateuszKrolik/zlobek_oborniki_generator_wnioskow/services"
 )
 
-func htmlToPDF(pages map[int][]byte) ([]byte, error) {
-	var body bytes.Buffer
-	writer := multipart.NewWriter(&body)
-
-	var mergedHTML bytes.Buffer
-	for i := 1; i <= len(pages); i++ {
-		mergedHTML.Write(pages[i])
-	}
-
-	// gotenberg requires at least 1 file named "index.html"
-	part, err := writer.CreateFormFile("files", "index.html")
-	if err != nil {
-		return nil, fmt.Errorf("failed to create form file: %w", err)
-	}
-	if _, err := part.Write(mergedHTML.Bytes()); err != nil {
-		return nil, fmt.Errorf("failed to write HTML content: %w", err)
-	}
-
-	writer.Close()
-
-	resp, err := http.Post(
-		"http://localhost:3001/forms/chromium/convert/html",
-		writer.FormDataContentType(),
-		&body,
-	)
-	if err != nil {
-		return nil, fmt.Errorf("Gotenberg request failed: %w", err)
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		errorBody, _ := io.ReadAll(resp.Body)
-		return nil, fmt.Errorf("Gotenberg error (%d): %s", resp.StatusCode, string(errorBody))
-	}
-
-	return io.ReadAll(resp.Body)
-}
-
-func saveAsSinglePdf(pages map[int][]byte) {
-	pdfBytes, err := htmlToPDF(pages)
+func saveAsSinglePdf(pages extensions.Pages) {
+	pdfBytes, err := pages.ToPdf("http://localhost:3001")
 	if err != nil {
 		log.Fatalf("Error converting to PDF: %v", err)
 	}
